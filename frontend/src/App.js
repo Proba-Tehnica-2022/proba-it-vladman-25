@@ -46,13 +46,13 @@ function App() {
           <div className="form-form">
             <form>
               <label>
-                <h3>Descriere</h3>
+                <h2>Descriere</h2>
                 <br />
                 <input type="text" name="desc" placeholder="descriere"/>
               </label>
               <br />
               <label>
-                <h3>Meme (jpg, jpeg, png, gif)</h3>
+                <h2>Meme (jpg, jpeg, png, gif)</h2>
                 <br />
                 <input type="textarea" name="pic" className="bigbox" placeholder="drag & drop image or click to upload"/>
               </label>

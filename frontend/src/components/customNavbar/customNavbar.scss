@@ -26,6 +26,7 @@
     .rdiv {
         position: relative;
         margin-right: 10px;
+
         // margin-left: 50%;
     }
     button {
@@ -33,13 +34,19 @@
     }
     .normal-buttons {
         display: flex;
+        gap: 30px;
     }
     .buttons-icon {
         display: none;
     }
+    
 
 }
-
+button {
+    background: #FFFFFF;
+    height: 100vw;
+    width: auto;
+}
 .login-purple {
     background: #FFFFFF;
     box-sizing: border-box;
@@ -77,12 +84,12 @@ dialog {
 
     button {
         position: relative;
-        color: #FFFFFF;
-        background: #252F65;
+        // color: #FFFFFF;
+        // background: #252F65;
 
-        border-radius: 50%;
+        // border-radius: 50%;
         height: 30px;
-        width: 30px;
+        // width: 30px;
         border: none;
         
 
@@ -125,12 +132,12 @@ dialog {
 
     button {
         position: relative;
-        color: #FFFFFF;
-        background: #252F65;
+        // color: #FFFFFF;
+        // background: #252F65;
 
-        border-radius: 50%;
+        // border-radius: 50%;
         height: 30px;
-        width: 30px;
+        // width: 30px;
         border: none;
         
 
@@ -184,7 +191,7 @@ dialog {
         color: #06114F;
     }
 
-    input[type=text] {
+    input[type=text],input[type=password], {
         position: relative;
         box-sizing: border-box;
         width: 90%;
@@ -274,7 +281,7 @@ dialog {
         color: #06114F;
     }
 
-    input[type=text] {
+    input[type=text],input[type=password],input[type=email] {
         position: relative;
         box-sizing: border-box;
         width: 90%;
@@ -360,14 +367,12 @@ dialog {
     border-bottom: 1px solid #06114F;
     border-radius: 20px;
 }
-
 dialog::backdrop {
-    top: 100px !important;
     background: rgba(255, 255, 255, 0.85);
 }
   
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1000px) {
     .navBar {
         height: 50px;
         .logo-picture {
@@ -439,11 +444,23 @@ dialog::backdrop {
         max-height: 2000px;
 
     }
-    .login-nav button {
-        background: #06114F !important;
+    // .login-nav button {
+    //     // background: #06114F !important;
+    // }
+    // .register-nav button {
+    //     background: #06114F !important;
+    // }
+    .login {
+        // display: grid;
+        // justify-content: ce;
+        input[type=submit] {
+            width: 60vw;
+            margin-left: 10vw;
+        }
     }
-    .register-nav button {
-        background: #06114F !important;
+    dialog::backdrop {
+        top: 100px !important;
+        background: rgba(255, 255, 255, 0.85);
     }
     
 }

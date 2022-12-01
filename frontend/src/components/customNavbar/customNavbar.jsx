@@ -8,46 +8,9 @@ import Modal from 'react-modal';
 import logo2 from "../../assets/logo.png";
 
 import square from "../../assets/9square.png";
+import xbutton from "../../assets/xButton.png";
 
 
-const customStyles_login = {
-  content: {
-        top: '15%',
-        left: '35%',
-        width: '30%',
-        height: '75%',
-        background: '#6F3096',
-        padding: '0px',
-        margin: '0px',
-  },
-};
-
-const customStyles_register = {
-    content: {
-        top: '15%',
-        left: '35%',
-        width: '30%',
-        height: '75%',
-        background: '#6F3096',
-        padding: '0px',
-        margin: '0px',
-     // transform: 'translate(-50%, -50%)',
-    },
-  };
-
-  const customStyles_menu = {
-    content: {
-        top: '50px',
-        left: '0%',
-        width: '100%',
-        height: '130px',
-        background: '#F5F5F5',
-        padding: '0px',
-        margin: '0px',
-        border: 'none',
-     // transform: 'translate(-50%, -50%)',
-    },
-  };
 
 Modal.setAppElement('#root');
 
@@ -79,7 +42,7 @@ function CustomNavbar(props) {
                         <dialog id="login1" className="login-style">
                             <div className="login-nav">
                                 <img src={logo2} className="logo-picture-mini"/>
-                                <button onClick={function test () {document.querySelector('#login1').close();}}>X</button>
+                                <button onClick={function test () {document.querySelector('#login1').close();}}><img src={xbutton} className="xbutton-pic"/></button>
                             </div>
 
                             <div className="login-purple">
@@ -91,13 +54,13 @@ function CustomNavbar(props) {
                                         <label>
                                             <h3>Username</h3>
                                             <br />
-                                            <input type="text" name="user" placeholder="username"/>
+                                            <input type="text" name="user" placeholder="username" required/>
                                         </label>
                                         <br />
                                         <label>
                                             <h3>Parola</h3>
                                             <br />
-                                            <input type="text" name="pass" placeholder="parola"/>
+                                            <input type="password" name="pass" placeholder="parola" required/>
                                         </label>
                                         <br />
                                         <input onClick={function test() {document.querySelector('#login1').close(); loginAction()}} type="submit" value="Logare"/>
@@ -113,7 +76,7 @@ function CustomNavbar(props) {
                         <dialog id="register1" className="register-style">  
                             <div className="register-nav">
                                 <img src={logo2} className="logo-picture-mini"/>
-                                <button onClick={function test () {document.querySelector('#register1').close();}}>X</button>
+                                <button onClick={function test () {document.querySelector('#register1').close();}}><img src={xbutton} className="xbutton-pic"/></button>
                             </div>
 
                             <div className="register-purple">
@@ -123,19 +86,19 @@ function CustomNavbar(props) {
                                         <label>
                                             <h3>Username</h3>
                                             <br />
-                                            <input type="text" name="user" placeholder="username"/>
+                                            <input type="text" name="user" placeholder="username" required/>
                                         </label>
                                         <br />
                                         <label>
                                             <h3>Email</h3>
                                             <br />
-                                            <input type="text" name="pass" placeholder="email"/>
+                                            <input type="email" name="pass" placeholder="email" required/>
                                         </label>
                                         <br />
                                         <label>
                                             <h3>Parola</h3>
                                             <br />
-                                            <input type="text" name="pass" placeholder="parola"/>
+                                            <input type="password" name="pass" placeholder="parola" required/>
                                         </label>
                                         <br />
                                         <input onClick={function test() {document.querySelector('#register1').close(); loginAction()}} type="submit" value="Creare cont"/>
@@ -167,7 +130,7 @@ function CustomNavbar(props) {
                                     <dialog id="login2" className="login-style"> 
                                         <div className="login-nav">
                                             <img src={logo2} className="logo-picture-mini"/>
-                                            <button onClick={function test() {document.querySelector('#login2').close();}}>X</button>
+                                            <button onClick={function test() {document.querySelector('#login2').close();}}><img src={xbutton} className="xbutton-pic"/></button>
                                         </div>
 
                                         <div className="login-purple">
@@ -179,13 +142,13 @@ function CustomNavbar(props) {
                                                     <label>
                                                         <h3>Username</h3>
                                                         <br />
-                                                        <input type="text" name="user" placeholder="username"/>
+                                                        <input type="text" name="user" placeholder="username" required/>
                                                     </label>
                                                     <br />
                                                     <label>
                                                         <h3>Parola</h3>
                                                         <br />
-                                                        <input type="text" name="pass" placeholder="parola"/>
+                                                        <input type="password" name="pass" placeholder="parola" required/>
                                                     </label>
                                                     <br />
                                                     <input onClick={function test() {document.querySelector('#login2').close(); loginAction()}} type="submit" value="Logare"/>
@@ -201,7 +164,7 @@ function CustomNavbar(props) {
                                     <dialog id="register2" className="register-style">     
                                         <div className="register-nav">
                                             <img src={logo2} className="logo-picture-mini"/>
-                                            <button onClick={function test() {document.querySelector('#register2').close();}}>X</button>
+                                            <button onClick={function test() {document.querySelector('#register2').close();}}><img src={xbutton} className="xbutton-pic"/></button>
                                         </div>
 
                                         <div className="register-purple">
@@ -211,19 +174,19 @@ function CustomNavbar(props) {
                                                     <label>
                                                         <h3>Username</h3>
                                                         <br />
-                                                        <input type="text" name="user" placeholder="username"/>
+                                                        <input type="text" name="user" placeholder="username" required/>
                                                     </label>
                                                     <br />
                                                     <label>
                                                         <h3>Email</h3>
                                                         <br />
-                                                        <input type="text" name="pass" placeholder="email"/>
+                                                        <input type="email" name="pass" placeholder="email" required/>
                                                     </label>
                                                     <br />
                                                     <label>
                                                         <h3>Parola</h3>
                                                         <br />
-                                                        <input type="text" name="pass" placeholder="parola"/>
+                                                        <input type="password" name="pass" placeholder="parola" required/>
                                                     </label>
                                                     <br />
                                                     <input onClick={function test() {document.querySelector('#register2').close(); loginAction()}} type="submit" value="Creare cont"/>

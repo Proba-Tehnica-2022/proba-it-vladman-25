@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+body {
+    background: #F5F5F5;
+    margin: 0;
+    border: 0;
+    overflow-x: hidden;
+}
+
+
+.saltbae-picture {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.landing-page {
+    display:flex;
+    margin-bottom: 100px;
+
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+.para1 {
+    width: 50%;
+    h1 {
+        position: relative;
+        width: 80%;
+        left: 10%;
+        top: 10%;
+
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 43px;
+        line-height: 121.1%;
+        color: #252F65;
+
+        text-align: center;
+    }
+    p {
+        position: relative;
+        width: 60%;
+        left: 20%;
+        top: 10%;
+        //top: 30%;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 121.1%;
+        color: #252F65;
+
+        text-align: center;
+
+        padding-bottom: 80px;
+    }
+    button {
+        position: relative;
+
+        padding: 20px;
+        width: 40%;
+        left: 30%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 20px;
+        color: #FFFFFF;
+        background: #6F3096;
+        border-radius: 5px;
+    }
+}
+
+
+.meme-form {
+    background: #6F3096;
+    height: 800px;
+    
+}
+
+.form-box {
+
+    position: relative;
+    //left: 20%;
+    margin: 0 auto;
+    display:flex;
+
+    top: 100px;
+
+    width: 80%;
+    height: 600px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 10px 30px rgba(38, 50, 56, 0.5);
+    border-radius: 21px;
+
+}
+
+.form-text {
+    width: 40%;
+    padding-left: 5%;
+    h1 {
+        position: relative;
+        width: 90%;
+        padding-top: 30%;
+
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 121.1%;
+        color: #252F65;
+
+        text-align: left;
+    }
+    p {
+        position: relative;
+        width: 90%;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 121.1%;
+        color: #252F65;
+
+        text-align: left;
+    }
+}
+.form-form {
+    width: 100vw;
+    padding-left: 5%;
+    padding-top: 10%;
+    h3 {
+        position: relative;
+        width: 90%;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 0;
+
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+
+        color: #06114F;
+    }
+
+    input[type=text] {
+        position: relative;
+        box-sizing: border-box;
+        width: 90%;
+        top: -10px;
+        height: 50px;
+        padding: 0;
+        margin: 0;
+
+        margin-bottom: 5%;
+
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        border: 1px solid #06114F;
+        border-radius: 5px;
+    }
+    input[type=textarea] {
+        position: relative;
+        box-sizing: border-box;
+        width: 90%;
+        top: -10px;
+        height: 50px;
+        padding: 0;
+        margin: 0;
+
+        margin-bottom: 5%;
+
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        border: 1px solid #06114F;
+        border-radius: 5px;
+        height: 150px;
+        margin-bottom: 7%;
+    }
+
+    ::placeholder {
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+
+        padding: 5%;
+        color: rgba(6, 17, 79, 0.3);
+    }
+    input[type=submit] {
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 25px;
+
+        color: #FFFFFF;
+        background: #6F3096;
+        //text-align: center;
+
+        border: none;
+        padding-top: 5px;
+        border-radius: 5px;
+        
+        margin-left: 27%;
+        width: 40%;
+        padding: 10px;
+        // padding-left: 60px;
+        // padding-right: 60px;
+    }
+}
+
+.most-viewed {
+    // height: 500px;
+    h1 {
+        position: relative;
+        width: 90%;
+        padding-top: 1%;
+        padding-left: 3%;
+
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 121.1%;
+        color: #252F65;
+
+        text-align: left;
+    }
+    margin-bottom: 50px;
+}
+.images-memes {
+    //padding-left: 10%;
+    height: 80%;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer {
+    margin-top: 30px;
+    height: 150px;
+    background: #06114F;
+    .social-media {
+        position: relative;
+        top: 30%;
+        display: flex;
+        justify-content: center;
+        
+    }
+    .footer-text {
+        position: relative;
+        top: 20%;
+        h2 {
+            
+            font-family: 'Merriweather';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 121.1%;
+
+            text-align: center;
+
+            color: #FFFFFF;
+        }
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .landing-page {
+        display: block;
+    }
+    .para1 {
+        // margin-top: 120px;
+        width: 100%;
+
+        button {
+            margin-top: 0;
+            top: 0%;
+        }
+    }
+    .meme-form {
+        height: 930px;
+    }
+    .form-box {
+        width: 80%;
+        left: 10%;
+        display: block;
+        margin: 0;
+        height: 730px;
+        
+        .form-text {
+            width: 90%;
+            left: 5%;
+            h1 {
+                padding-top: 10%;
+                margin: 0;
+                left: 5%;
+                width: 90%;
+            }
+            p {
+                margin: 0;
+                margin-top: 20px;
+                left: 5%;
+                width: 90%;
+            }
+        }
+        .form-form {
+            width: 90%;
+            left: 5%;
+            h3 {
+                margin: 0;
+                left: 5%;
+                width: 90%;
+            }
+            input[type=text] {
+                width: 90%;
+                left: 5%;
+            }
+            input[type=textarea] {
+                width: 90%;
+                left: 5%;
+            }
+        }
+    }
+    .most-viewed {
+        // height: 1200px;
+        .images-memes {
+            display: block;
+            margin-bottom: 30px;
+            padding: 60px;
+            a {
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .footer {
+        .social-media {
+            width: 30%;
+            left: 35%;
+            
+        }
+    }
+    
+}

@@ -1,0 +1,15 @@
+.my-custom-pic {
+    position: relative;
+    width: 100%;
+    height: auto;
+    align-self: center;
+}
+
+@media only screen and (max-width: 1100px) {
+    .my-custom-pic {
+        width: 90%;
+        left: 5%;
+        padding-bottom: 30px;
+        margin-bottom: 40px;
+    }
+}

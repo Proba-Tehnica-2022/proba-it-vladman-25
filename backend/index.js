@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 const testRoutes = require("./routes/test.routes")
 const middleware = require("./middlewares/middleware")
 
-app.use("/memes", middleware, testRoutes)
+app.use("/memes", testRoutes)
 
 const PORT = process.env.PORT || 5000;
 

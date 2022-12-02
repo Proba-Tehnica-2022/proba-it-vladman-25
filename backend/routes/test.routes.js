@@ -1,3 +1,4 @@
+var session_check = require("../middlewares/middleware")
 const router = require("express").Router();
 const Users = require("../models/user.model")
 const Memes = require("../models/meme.model")
@@ -6,10 +7,9 @@ const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
 
+require("dotenv").config()
 const SECRET = process.env.SECRET
 
-
-require("dotenv").config()
 
 router.get("/",async (req,res) => {
     const data = await Memes.find();
@@ -22,7 +22,8 @@ router.get("/:id",async (req,res) => {
     return res.send(data)
 })
 
-router.post("/",async (req,res) => {
+
+router.post("/", session_check, async (req,res) => {
     try {
         console.log('req.body')
         console.log(req.body)
@@ -46,7 +47,7 @@ router.post("/",async (req,res) => {
     }
 })
 
-router.patch("/:id",async (req,res) => {
+router.patch("/:id",session_check, async (req,res) => {
     try {
         const data = await Memes.findByIdAndUpdate(req.params.id, {description: req.body.description});
         console.log('edited data')
@@ -59,7 +60,7 @@ router.patch("/:id",async (req,res) => {
 
 })
 
-router.delete("/:id",async (req,res) => {
+router.delete("/:id",session_check, async (req,res) => {
     try {
         const data = await Memes.findByIdAndDelete(req.params.id);
         console.log('deleted user')

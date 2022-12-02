@@ -29,14 +29,14 @@ function App() {
           <h1>Partajarea de meme-uri nu a fost niciodată mai simplă!</h1>
           <p>Platforma ideală pentru studenții de la Politehnică,
             amuzați de câte materii o să pice semestrul asta.</p>
-          <CustomButton text="Upload a MEME"/>
+          <a href="#meme"><CustomButton text="Upload a MEME"/></a>
         </div>
         <div>
           <img src={saltbae} className="saltbae-picture"/>
         </div>
       </div>
 
-      <div className="meme-form">
+      <div className="meme-form" id="meme">
         <div className="form-box"> 
           <div className="form-text">
             <h1>Ai tupeu și crezi că ești amuzant?</h1>
@@ -53,8 +53,14 @@ function App() {
               <br />
               <label>
                 <h2>Meme (jpg, jpeg, png, gif)</h2>
+                <label for="file-upload" className="bigbox">
+                  drag & drop image or click to upload
+                </label>
                 <br />
-                <input type="textarea" name="pic" className="bigbox" placeholder="drag & drop image or click to upload"/>
+                <input type="file" name="pic" id="file-upload"
+                        accept=".jpg, .jpeg, .png, .gif" 
+                        placeholder="drag & drop image or click to upload"/>
+                
               </label>
               <br />
               <input type="submit" value="Trimite"/>

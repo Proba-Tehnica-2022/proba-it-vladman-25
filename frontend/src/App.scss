@@ -74,7 +74,7 @@ body {
 
 .meme-form {
     background: #6F3096;
-    height: 800px;
+    height: 700px;
     
 }
 
@@ -87,8 +87,8 @@ body {
 
     top: 100px;
 
-    width: 80%;
-    height: 600px;
+    width: 60%;
+    height: 500px;
 
     background: #FFFFFF;
     box-shadow: 0px 10px 30px rgba(38, 50, 56, 0.5);
@@ -102,7 +102,7 @@ body {
     h1 {
         position: relative;
         width: 90%;
-        padding-top: 30%;
+        padding-top: 20%;
 
         font-family: 'Merriweather';
         font-style: normal;
@@ -130,7 +130,7 @@ body {
 .form-form {
     width: 100vw;
     padding-left: 5%;
-    padding-top: 10%;
+    padding-top: 5%;
     h2 {
         position: relative;
         width: 90%;
@@ -165,14 +165,19 @@ body {
         border: 1px solid #06114F;
         border-radius: 5px;
     }
-    input[type=textarea] {
+    input[type=file] {
+        display: none;
+    }
+    .bigbox {
+        // display: none;
         position: relative;
         box-sizing: border-box;
         width: 90%;
-        top: -10px;
+        top: 10px;
         height: 50px;
         padding: 0;
         margin: 0;
+        display: inline-block;
 
         margin-bottom: 5%;
 
@@ -180,10 +185,13 @@ body {
         font-style: normal;
         font-weight: 700;
         font-size: 16px;
+        padding: 5%;
+        color: rgba(6, 17, 79, 0.3);
         border: 1px solid #06114F;
         border-radius: 5px;
         height: 150px;
-        margin-bottom: 7%;
+        // margin-bottom: 7%;
+        
     }
 
     ::placeholder {
@@ -197,6 +205,7 @@ body {
         color: rgba(6, 17, 79, 0.3);
     }
     input[type=submit] {
+        
         font-family: 'Merriweather';
         font-style: normal;
         font-weight: 700;
@@ -285,10 +294,20 @@ body {
     .para1 {
         // margin-top: 120px;
         width: 100%;
-
+        h1 {
+            font-size: 28px;
+        }
+        p {
+            font-size: 18px;
+        }
         button {
             margin-top: 0;
             top: 0%;
+            font-size: 20px;
+            width: 80%;
+            left: 10%;
+            
+            height: 60px;
         }
     }
     .meme-form {
@@ -332,8 +351,12 @@ body {
                 width: 90%;
                 left: 5%;
             }
-            input[type=textarea] {
+            .bigbox {
                 width: 90%;
+                left: 5%;
+            }
+            input[type=submit] {
+                width: 50%;
                 left: 5%;
             }
         }

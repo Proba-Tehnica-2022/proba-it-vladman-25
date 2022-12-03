@@ -13,13 +13,13 @@ const SECRET = process.env.SECRET
 
 router.get("/",async (req,res) => {
     const data = await Memes.find();
-    return res.send(data)
+    return res.status(200).send(data)
 })
 router.get("/:id",async (req,res) => {
     const data = await Memes.findById(req.params.id);
     console.log('sending data')
     console.log(data)
-    return res.send(data)
+    return res.status(200).send(data)
 })
 
 
@@ -32,15 +32,21 @@ router.post("/", session_check, async (req,res) => {
         if (newDesc.length > 2500) {
             return res.status(400).send({message: "description too long"})
         }
+
+        const mytoken = req.headers["token"]
+        var decoded = jwt.verify(mytoken, SECRET)
+        const user = await Users.findOne({username: decoded.username})
+
         const testElement = new Memes({
-            description: req.body.description
+            description: req.body.description,
+            creatorId: user._id
         })
         console.log("Before save:")
         console.log(testElement)
         await testElement.save()
         console.log("After save:")
         console.log(testElement)
-        return res.status(200).send("OK")
+        return res.status(200).send(testElement)
     } catch(error) {
         console.log(error)
         return res.status(500).send("Am murit")
@@ -49,23 +55,47 @@ router.post("/", session_check, async (req,res) => {
 
 router.patch("/:id",session_check, async (req,res) => {
     try {
-        const data = await Memes.findByIdAndUpdate(req.params.id, {description: req.body.description});
-        console.log('edited data')
-        console.log(data)
-        return res.status(200).send("OK")
+        const data_ini = await Memes.findById(req.params.id);
+        const memeuid = data_ini.creatorId
+        const mytoken = req.headers["token"]
+        var decoded = jwt.verify(mytoken, SECRET)
+        const user = await Users.findOne({username: decoded.username})
+        const uid = user._id.toString()
+
+        if(memeuid === uid) {
+            const data = await Memes.findByIdAndUpdate(req.params.id, {description: req.body.description});
+            console.log('edited data')
+            console.log(data)
+            return res.status(200).send(data)
+        }
+        console.log(memeuid)
+        console.log(uid)
+        return res.status(403).send({message : "You can modify only your memes"})
     } catch(error) {
         console.log(error)
         return res.status(500).send("Am murit")
-    }
+    } 
 
 })
 
 router.delete("/:id",session_check, async (req,res) => {
     try {
-        const data = await Memes.findByIdAndDelete(req.params.id);
-        console.log('deleted user')
-        console.log(data)
-        return res.status(200).send("OK")
+        const data_ini = await Memes.findById(req.params.id);
+        const memeuid = data_ini.creatorId
+        const mytoken = req.headers["token"]
+        var decoded = jwt.verify(mytoken, SECRET)
+        const user = await Users.findOne({username: decoded.username})
+        const uid = user._id.toString()
+
+        if(memeuid === uid) {
+            const data = await Memes.findByIdAndDelete(req.params.id);
+            console.log('deleted user')
+            console.log(data)
+            return res.status(200).send("OK")
+        }
+        console.log(memeuid)
+        console.log(uid)
+        return res.status(403).send({message : "You can delete only your memes"})
     } catch(error) {
         console.log(error)
         return res.status(500).send("Am murit")
@@ -172,9 +202,8 @@ router.post("/login", async (req,res) => {
             const hash = data.password
             if(bcrypt.compareSync(myPlaintextPassword, hash) == true) {
 
-                var token = jwt.sign(req.body, SECRET);
+                var token = jwt.sign({"username" : req.body.username}, SECRET);
 
-                // return res.send("OK")
                 return res.status(200).send({'token': token})
             }
             console.log(myPlaintextPassword)

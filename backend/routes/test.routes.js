@@ -1,18 +1,25 @@
 var session_check = require("../middlewares/middleware")
 const router = require("express").Router();
+
+
+
 const Users = require("../models/user.model")
 const Memes = require("../models/meme.model")
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
+const fs = require('fs');
 
 require("dotenv").config()
 const SECRET = process.env.SECRET
 
+const formidable = require('formidable');
 
 router.get("/",async (req,res) => {
     const data = await Memes.find();
+    console.log(data)
     return res.status(200).send(data)
 })
 router.get("/:id",async (req,res) => {
@@ -26,27 +33,47 @@ router.get("/:id",async (req,res) => {
 router.post("/", session_check, async (req,res) => {
     try {
         console.log('req.body')
-        console.log(req.body)
+        // console.log(req.body)
 
-        let newDesc = req.body.description
-        if (newDesc.length > 2500) {
-            return res.status(400).send({message: "description too long"})
-        }
+        const form = formidable({ multiples: true, uploadDir: "./uploads" });
 
-        const mytoken = req.headers["token"]
-        var decoded = jwt.verify(mytoken, SECRET)
-        const user = await Users.findOne({username: decoded.username})
+        let nDesc
+        let newFile
+        await form.parse(req, async (err, fields, files) => {
+            nDesc = fields.description
+            let newDesc = nDesc || "default"
+            console.log(newDesc)
+            if (newDesc.length > 2500) {
+                return res.status(400).send({message: "description too long"})
+            }
 
-        const testElement = new Memes({
-            description: req.body.description,
-            creatorId: user._id
-        })
-        console.log("Before save:")
-        console.log(testElement)
-        await testElement.save()
-        console.log("After save:")
-        console.log(testElement)
-        return res.status(200).send(testElement)
+            const mytoken = req.headers["token"]
+            var decoded = jwt.verify(mytoken, SECRET)
+            const user = await Users.findOne({username: decoded.username})
+
+
+            let testElement = new Memes({
+                description: newDesc,
+                creatorId: user._id,
+                path: ""
+            })
+
+            newFile = files.file
+            const newPath = "./uploads/" + testElement._id + ".png";
+            await fs.rename( "./uploads/" + newFile.newFilename, newPath, function (err) {
+                if (err) throw err;
+                console.log('File Renamed.');
+            });
+
+            testElement.path = newPath
+
+            console.log("Before save:")
+            console.log(testElement)
+            await testElement.save()
+            console.log("After save:")
+            console.log(testElement)
+            return res.status(200).send(testElement)
+        });
     } catch(error) {
         console.log(error)
         return res.status(500).send("Am murit")

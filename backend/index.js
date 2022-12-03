@@ -8,10 +8,14 @@ const app = express()
 
 require("dotenv").config()
 
-app.use(bodyParser.urlencoded({
+app.use(express.urlencoded({
     extended: true
 }))
-app.use(bodyParser.json())
+app.use(express.json());
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }))
+// app.use(bodyParser.json())
 
 
 const testRoutes = require("./routes/test.routes")

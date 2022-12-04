@@ -10,14 +10,47 @@ import { SocialIcon } from 'react-social-icons'
 import img1 from "./assets/img1.png";
 import img2 from "./assets/img2.png";
 import img3 from "./assets/img3.png";
+import Axios from "axios";
+
+
 
 
 function App() {
+  /////
   const [width, setWindowWidth] = useState(0);
   const updateDimensions = () => {
     const width = window.innerWidth
     setWindowWidth(width)
   }
+
+
+  const [description2, setDescription] = useState("");
+  let file2
+
+
+  function handleSubmit() {
+    var bodyFormData = new FormData();
+    bodyFormData.append('description', description2);
+    bodyFormData.append('file',file2)
+
+    Axios({
+      method: "POST",
+      url: "http://localhost:5000/memes/",
+      withCredentials: true,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsZXgyNTAxIiwiaWF0IjoxNjcwMTAyODcwfQ.KAyjKrKeF4D3iz3CjZzuf2C5Z9AqD64zygnHORuwUEw",
+      },
+      data: bodyFormData
+    }).then(res => {
+      console.log(res.data.message);
+    });
+  }
+
+
+
+
+
   return (
     <div className="appdiv">
       <div className="nav">
@@ -36,6 +69,7 @@ function App() {
         </div>
       </div>
 
+
       <div className="meme-form" id="meme">
         <div className="form-box"> 
           <div className="form-text">
@@ -44,11 +78,13 @@ function App() {
           </div>
 
           <div className="form-form">
-            <form>
+            <form onSubmit={handleSubmit}>
               <label>
                 <h2>Descriere</h2>
                 <br />
-                <input type="text" name="desc" placeholder="descriere"/>
+                <input type="text" name="desc" placeholder="descriere"
+                       value={description2}
+                       onChange={(e) => setDescription(e.target.value)}/>
               </label>
               <br />
               <label>
@@ -56,10 +92,13 @@ function App() {
                 <label for="file-upload" className="bigbox">
                   drag & drop image or click to upload
                 </label>
+
                 <br />
-                <input type="file" name="pic" id="file-upload"
+                <input type="file"  id="file-upload"
                         accept=".jpg, .jpeg, .png, .gif" 
-                        placeholder="drag & drop image or click to upload"/>
+                        placeholder="drag & drop image or click to upload"
+                       value={file2}
+                       onChange={(e) => {file2 = e.target.files[0]}}/>
                 
               </label>
               <br />

@@ -29,8 +29,7 @@ router.get("/:id",async (req,res) => {
     return res.status(200).send(data)
 })
 
-
-router.post("/", session_check, async (req,res) => {
+router.post("/", session_check ,async (req,res) => {
     try {
         console.log('req.body')
         // console.log(req.body)
@@ -55,8 +54,14 @@ router.post("/", session_check, async (req,res) => {
             let testElement = new Memes({
                 description: newDesc,
                 creatorId: user._id,
-                path: ""
+                path: "aaa"
             })
+
+
+
+            console.log(fields)
+
+
 
             newFile = files.file
             const newPath = "./uploads/" + testElement._id + ".png";
@@ -69,7 +74,7 @@ router.post("/", session_check, async (req,res) => {
 
             console.log("Before save:")
             console.log(testElement)
-            await testElement.save()
+            await testElement.save();
             console.log("After save:")
             console.log(testElement)
             return res.status(200).send(testElement)

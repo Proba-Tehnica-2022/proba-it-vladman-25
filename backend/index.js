@@ -21,6 +21,17 @@ app.use(express.json());
 const testRoutes = require("./routes/test.routes")
 const middleware = require("./middlewares/middleware")
 
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
+    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization,token')
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    res.header('Access-Control-Allow-Credentials', 'true')
+    res.header('Access-Control-Request-Headers', 'Access-Control-Allow-Credentials,Access-Control-Allow-Methods,Access-Control-Allow-Headers,Access-Control-Allow-Origin')
+    next();
+});
+
+
+
 app.use("/memes", testRoutes)
 
 const PORT = process.env.PORT || 5000;

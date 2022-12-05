@@ -365,7 +365,7 @@ dialog {
     margin: 0px;
     border: none;
     border-bottom: 1px solid #06114F;
-    border-radius: 20px;
+    border-radius: 0 0 20px 20px;
 }
 dialog::backdrop {
     background: rgba(255, 255, 255, 0.85);
@@ -459,7 +459,7 @@ dialog::backdrop {
         }
     }
     dialog::backdrop {
-        top: 100px !important;
+        top: 50px !important;
         background: rgba(255, 255, 255, 0.85);
     }
     

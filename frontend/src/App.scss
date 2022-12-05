@@ -204,7 +204,7 @@ body {
         padding: 5%;
         color: rgba(6, 17, 79, 0.3);
     }
-    input[type=submit] {
+    button[type=submit] {
         
         font-family: 'Merriweather';
         font-style: normal;
@@ -223,6 +223,7 @@ body {
         margin-left: 27%;
         width: 40%;
         padding: 10px;
+        height: 50px !important;
         // padding-left: 60px;
         // padding-right: 60px;
     }
@@ -284,6 +285,9 @@ body {
 
             color: #FFFFFF;
         }
+    }
+    .miniSocial {
+        padding: 7px;
     }
 }
 
@@ -355,9 +359,10 @@ body {
                 width: 90%;
                 left: 5%;
             }
-            input[type=submit] {
+            button[type=submit] {
                 width: 50%;
                 left: 5%;
+                height: 50px !important;
             }
         }
     }
@@ -381,6 +386,25 @@ body {
             a {
                 margin-bottom: 30px;
             }
+        }
+    }
+
+}
+@media only screen and (max-width: 300px) {
+    .para1 {
+        h1 {
+            font-size: 26px;
+        }
+        p {
+            font-size: 19px;
+        }
+    }
+    .form-text {
+        h1 {
+            font-size: 26px;
+        }
+        p {
+            font-size: 19px;
         }
     }
 }

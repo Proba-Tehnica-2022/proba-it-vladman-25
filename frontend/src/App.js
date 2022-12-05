@@ -5,11 +5,14 @@ import CustomImage from "./components/customImage/customImage";
 import "./App.scss"
 import React, { useState } from 'react'
 
-import { SocialIcon } from 'react-social-icons'
-
 import img1 from "./assets/img1.png";
 import img2 from "./assets/img2.png";
 import img3 from "./assets/img3.png";
+
+import insta from "./assets/insta.png";
+import twitch from "./assets/twitch.png";
+import facebook from "./assets/facebook.png";
+
 import Axios from "axios";
 
 
@@ -17,11 +20,11 @@ import Axios from "axios";
 
 function App() {
   /////
-  const [width, setWindowWidth] = useState(0);
-  const updateDimensions = () => {
-    const width = window.innerWidth
-    setWindowWidth(width)
-  }
+  // const [width, setWindowWidth] = useState(0);
+  // const updateDimensions = () => {
+  //   const width = window.innerWidth
+  //   setWindowWidth(width)
+  // }
 
 
   const [description2, setDescription] = useState("");
@@ -65,7 +68,7 @@ function App() {
           <a href="#meme"><CustomButton text="Upload a MEME"/></a>
         </div>
         <div>
-          <img src={saltbae} className="saltbae-picture"/>
+          <img src={saltbae} className="saltbae-picture" alt="saltbae"/>
         </div>
       </div>
 
@@ -89,7 +92,7 @@ function App() {
               <br />
               <label>
                 <h2>Meme (jpg, jpeg, png, gif)</h2>
-                <label for="file-upload" className="bigbox">
+                <label htmlFor="file-upload" className="bigbox">
                   drag & drop image or click to upload
                 </label>
 
@@ -102,7 +105,7 @@ function App() {
                 
               </label>
               <br />
-              <input type="submit" value="Trimite"/>
+              <button type="submit">Trimite</button>
             </form>
           </div>
         </div>
@@ -111,22 +114,22 @@ function App() {
       <div className="most-viewed">
         <h1>Most viewed</h1>
         <div className="images-memes">
-          <CustomImage picture={img1}/>
-          <CustomImage picture={img2}/>
-          <CustomImage picture={img3}/>
+          <CustomImage picture={img1} alt="saltbae"/>
+          <CustomImage picture={img2} alt="saltbae"/>
+          <CustomImage picture={img3} alt="saltbae"/>
         </div>
       </div>
 
       <div className="footer">
         <div className="social-media">
           <a href="https://www.instagram.com/lsacbucuresti/">
-            <SocialIcon network="instagram" fgColor="#FFFFFF" bgColor="#06114F" />
+            <img src={insta} className="miniSocial" alt="saltbae"/>
           </a>
           <a href="https://www.twitch.tv/lsac_bucuresti">
-            <SocialIcon network="twitch" fgColor="#FFFFFF" bgColor="#06114F" />
+            <img src={twitch} className="miniSocial" alt="saltbae"/>
           </a>
           <a href="https://www.facebook.com/LsacBucuresti/">
-            <SocialIcon network="facebook"  fgColor="#FFFFFF" bgColor="#06114F" />
+            <img src={facebook} className="miniSocial" alt="saltbae"/>
           </a>
         </div>
         <div className="footer-text">

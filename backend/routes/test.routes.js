@@ -59,11 +59,25 @@ router.post("/", session_check ,async (req,res) => {
 
 
 
-            console.log(fields)
+            console.log(files.file)
 
 
 
             newFile = files.file
+
+            if (newFile.size > 2 * 10e6) {
+                console.log("file too big")
+                fs.unlinkSync("./uploads/" + newFile.newFilename)
+                return res.status(400).send({message: "file too big"})
+            }
+            if   ((newFile.mimetype !== 'image/png')
+                &&(newFile.mimetype !== 'image/jpg')
+                &&(newFile.mimetype !== 'image/jpeg')
+                &&(newFile.mimetype !== 'image/gif')) {
+                fs.unlinkSync("./uploads/" + newFile.newFilename)
+                return res.status(400).send({message: "file type not accepted"})
+            }
+            //.jpg, .jpeg, .png, .gif
             const newPath = "./uploads/" + testElement._id + ".png";
             await fs.rename( "./uploads/" + newFile.newFilename, newPath, function (err) {
                 if (err) throw err;
@@ -77,7 +91,7 @@ router.post("/", session_check ,async (req,res) => {
             await testElement.save();
             console.log("After save:")
             console.log(testElement)
-            return res.status(200).send(testElement)
+            return res.status(200).send({message: "OK"})
         });
     } catch(error) {
         console.log(error)

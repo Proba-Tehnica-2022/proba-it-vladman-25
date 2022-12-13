@@ -228,7 +228,18 @@ body {
         // padding-right: 60px;
     }
 }
-
+.form-place-holder {
+    display: none !important;
+}
+.form-place-holder-no {
+    display: block !important;
+}
+.shown-image {
+    position: relative;
+    width: 50%;
+    left: 21%;
+    height: auto;
+}
 .most-viewed {
     // height: 500px;
     h1 {
@@ -255,6 +266,7 @@ body {
     // padding-left: 30px;
     // padding-right: 30px;
     display: flex;
+    flex-wrap: wrap;
     // justify-content: space-between;
     gap: 3vw;
 }
@@ -292,6 +304,12 @@ body {
 }
 
 @media only screen and (max-width: 1100px) {
+    .shown-image {
+        position: relative;
+        width: 30%;
+        left: 35%;
+        height: auto;
+    }
     .landing-page {
         display: block;
     }
@@ -377,6 +395,12 @@ body {
 }
 
 @media only screen and (max-width: 800px) {
+    .shown-image {
+        position: relative;
+        width: 40%;
+        left: 30%;
+        height: auto;
+    }
     .most-viewed {
         .images-memes {
             display: block;
@@ -389,6 +413,22 @@ body {
         }
     }
 
+}
+@media only screen and (max-width: 650px) {
+    .shown-image {
+        position: relative;
+        width: 50%;
+        left: 25%;
+        height: auto;
+    }
+}
+@media only screen and (max-width: 300px) {
+    .shown-image {
+        position: relative;
+        width: 80%;
+        left: 10%;
+        height: auto;
+    }
 }
 @media only screen and (max-width: 300px) {
     .para1 {

@@ -5,7 +5,6 @@ const cors = require("cors")
 
 
 const app = express()
-
 require("dotenv").config()
 
 app.use(express.urlencoded({
@@ -18,7 +17,10 @@ app.use(express.json());
 // app.use(bodyParser.json())
 
 
-const testRoutes = require("./routes/test.routes")
+
+
+const memeRoutes = require("./routes/meme.routes")
+const authRoutes = require("./routes/auth.routes")
 const middleware = require("./middlewares/middleware")
 
 app.use(function(req, res, next) {
@@ -31,8 +33,11 @@ app.use(function(req, res, next) {
 });
 
 
+app.use(express.static('./uploads'))
 
-app.use("/memes", testRoutes)
+app.use("/memes", memeRoutes)
+app.use("/auth", authRoutes)
+
 
 const PORT = process.env.PORT || 5000;
 

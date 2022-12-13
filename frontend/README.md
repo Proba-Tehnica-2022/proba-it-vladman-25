@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Proba Tehnica IT - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Am urmarit cat se poate de mult design-ul de pe figma iar pe partea de responsive 
+am mai cerut parerea mentorului si am mai intuit modificarile aduse.
 
-## Available Scripts
+## Rulare
 
-In the project directory, you can run:
+In folderul frontend veti rula urmatoarele comenzi (cred/sper)
+
+### `npm i react-scripts axios local-storage sass`
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Se deschide aplciatia in browser la adresa [http://localhost:3000](http://localhost:3000)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tehnlogii
 
-### `npm test`
+Am folosit React si SASS. Formularele sunt trimise catre backend prin Axios.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Task-uri implementate
 
-### `npm run build`
+### 1. Navbar
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Este fixat sus, are cele 2 butoane. Pe ecrane mai mici, cele 2 butoane sunt inlocuite de 
+unul singur care dupa apasare vor aparea alte 3 butoane in jos.
+Se afiseaza Delogare in cazul in care utilizatorul logat, si se tine cont de asta prin JWT-ul 
+returnat in momentul autentificarii, retinut ulterior in local storage.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Landing page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Nimic special de zis, arata cum ar trebui iar butonul este functional
 
-### `npm run eject`
+### 3. Login/Register
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Se deschid dialog-uri ca in mock aproximativ ca nu erau exact explicate.
+Cele 2 formulare, atat pentru fullscreen cat si mobile, sunt si legate la backend (voi explica ulterior)
+iar trecerea in starea de logare se face doar daca cererea de login primeste un response OK 200
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Formular de upload imagini
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Nu am reusit sa implementez drag and drop.
+Am incercat sa implementez si functionalitatea ca poza sa iti apara dupa ce o incarci inainte sa dai submit insa
+dintr-un motiv anume campul de files era ulterior golit si nu se mai putea face post-ul (n-am mai avut timp
+sa intreb mentorul legat de aceasta eroare).
+Si acest formular este legat la backend (pozele chiar vor aparea ulterior alaturi de numele utilizatorului si
+de descriere).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 5. Footer
 
-## Learn More
+Iconitele functioneaza
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 6. Responsiveness
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Chiar este responsive, facut din media queries.
 
-### Code Splitting
+### 7. My Bonus - Legare Frontend si Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Cererile implementate se fac cu ajutorul Axios. 
+La refresh/prima randare a paginii, se va trimite o cerere 'get memes/' in urma carora vor aparea
+elementele din sectiunea Most viewed, cu poza, creator si descriere. Stiu ca design-ul nu este foarte interesant
+in partea aceea dar nu era nicio recomandare de implementare. De asemena, si restul de cereri sunt trimise tot prin Axios
+(post meme, login sau register)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

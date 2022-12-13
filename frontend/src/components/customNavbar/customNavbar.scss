@@ -333,20 +333,20 @@ dialog {
 }
 
 .login-style {
-    top: 15%;
+    top: 5%;
     left: 30%;
     width: 40%;
-    height: 70%;
+    height: 85%;
     background-color: #6F3096;
     padding: 0px;
     margin: 0px;
     border: 2px solid #06114F;
 }
 .register-style {
-    top: 15%;
+    top: 5%;
     left: 30%;
     width: 40%;
-    height: 70%;
+    height: 90%;
     background-color: #6F3096;
     padding: 0px;
     margin: 0px;
@@ -451,6 +451,14 @@ dialog::backdrop {
     //     background: #06114F !important;
     // }
     .login {
+        // display: grid;
+        // justify-content: ce;
+        input[type=submit] {
+            width: 60vw;
+            margin-left: 10vw;
+        }
+    }
+    .register {
         // display: grid;
         // justify-content: ce;
         input[type=submit] {

@@ -1,8 +1,28 @@
 .my-custom-pic {
+
     position: relative;
     width: 30vw;
-    height: auto;
-    align-self: center;
+    align-items: center;
+    img {
+        width: 100%;
+        height: auto;
+    }
+    h2 {
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 121.1%;
+        color: #252F65;
+
+        width: 90%;
+        margin-left: 5%;
+        text-align: left;
+    }
+    .artist {
+        font-weight: 900;
+    }
+
 }
 
 @media only screen and (max-width: 800px) {

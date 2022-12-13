@@ -2,8 +2,10 @@ import "./customImage.scss"
 
 function CustomImage(props) {
     return (
-        <div>
-          <img src={props.picture} className="my-custom-pic"/>
+        <div className="my-custom-pic">
+            <img src={props.picture}/>
+            <h2>{props.author}: {props.description}</h2>
+
         </div>
     );
   }

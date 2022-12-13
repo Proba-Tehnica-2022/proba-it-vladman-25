@@ -9,6 +9,10 @@ const memeSchema = new mongoose.Schema({
         type: String,
         // required: true,
     },
+    creatorName: {
+        type: String,
+        // required: true,
+    },
     path: {
         type: String,
         required: true,
